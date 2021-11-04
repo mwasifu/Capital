@@ -1,0 +1,257 @@
+﻿<Window x:Class="Capital.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="890" Width="1500" 
+        WindowStartupLocation="Manual"
+        xmlns:local="clr-namespace:Capital"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        Loaded="Window_Loaded"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        AllowsTransparency="True" FontFamily="Roboto Light"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="161*"/>
+            <RowDefinition Height="633*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card Margin="10,10,10,10" UniformCornerRadius="5" Background="White" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="18*" />
+                    <ColumnDefinition Width="6*" />
+
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="materialDesign:PackIcon">
+                        <Setter Property="Width" Value="35"></Setter>
+                        <Setter Property="Height" Value="35"></Setter>
+                    </Style>
+                </Grid.Resources>
+
+                <Grid Grid.Column="0" Background="#FF410054" MouseDown="Grid_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    
+                    <ListView Margin="0 15" HorizontalContentAlignment="Center" >
+                        <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}"  HorizontalAlignment="Left" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon MouseLeftButtonDown="shopBtn_Click" Kind="Resistor" Foreground="White"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Center" Margin="0 0">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Yellow">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon MouseLeftButtonDown="rentBtn_Click" Kind="Money" Foreground="White"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Center" Margin="10">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon x:Name="refreshBtn" MouseLeftButtonDown="refreshBtn_MouseDown" Kind="Refresh" Foreground="White"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Center" Margin="0">
+
+                            <StackPanel Margin="-5">
+                                <materialDesign:PopupBox Foreground="White" PlacementMode="TopAndAlignCentres" StaysOpen="False" Height="35" RenderTransformOrigin="0.5,0.5" Margin="0,10,0,0">
+                                    <materialDesign:PopupBox.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </materialDesign:PopupBox.RenderTransform>
+                                    <StackPanel Width="150" Height="100" >
+
+                                        <Button Content="Generate a Report" HorizontalContentAlignment="Center"  FontFamily="Roboto Light" Width="150"/>
+                                        <Button Content="Create New User"  FontFamily="Roboto Light" Width="150" HorizontalContentAlignment="Center" />
+                                    </StackPanel>
+                                </materialDesign:PopupBox>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+                    </ListView>
+                    <ListView VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <ListViewItem>
+                            <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,0">
+                                <Button Style="{StaticResource MaterialDesignFloatingActionButton}" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Margin="0,0,0,25">
+
+                                    <materialDesign:PackIcon x:Name="btnMin" MouseLeftButtonDown="btnMin_Click" Kind="WindowMinimize" Foreground="White" MinWidth="35" MinHeight="35"/>
+
+                                </Button>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem>
+                            <StackPanel >
+                                <Button Style="{StaticResource MaterialDesignFloatingActionButton}"  VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Margin="0,0,0,25">
+
+                                    <materialDesign:PackIcon x:Name="btnExit" MouseLeftButtonDown="btnExit_Click" Kind="Close" Foreground="White" MinWidth="35" Height="35"/>
+
+                                </Button>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+
+
+                </Grid>
+
+                <Grid Grid.Column="1" Margin="20,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="5*" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <TextBlock Text="Capital" Foreground="#FF9449A9" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Roboto Medium" FontWeight="DemiBold" FontSize="30"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <TextBlock Text="Rent" Foreground="#FF4B4B4B" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Roboto Medium" FontSize="30" Margin="0,0,20,0"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <DataGrid x:Name="grid1" IsReadOnly="True" Cursor="Arrow" Background="{x:Null}" Foreground="#DD3400FF" />
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Button x:Name="editBtn" Content="Edit" BorderBrush="#FF410054" BorderThickness="0.5,0.5,0.5,0.5" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="editBtn_Click" FontSize="13"  />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Button  x:Name="createBtn" Content="Create" BorderBrush="#FF410054" BorderThickness="0.5,0.5,0.5,0.5" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="createBtn_Click" FontSize="13">
+                                    
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Button x:Name="delBtn" Content="Delete" BorderBrush="#FFFD3737" BorderThickness="0.5,0.5,0.5,0.5" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="delBtn_Click" FontSize="13" />
+                            </Grid>
+
+
+                        </Grid>
+                    </Grid>
+
+
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="7*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Grid.Row="0">
+                        <StackPanel>
+                            <TextBox x:Name="searchBar" x:FieldModifier="public" Text="Search" Margin="25,30,25,15" Height="30" HorizontalAlignment="Center" FontFamily="Roboto Medium" FontSize="15" Width="265" BorderThickness="0,0,0,1" />
+
+                            <Button x:Name="searchBtn" Content="Go" FontFamily="Roboto Light" Foreground="White" Margin="25,15,25,0" Background="#FF9749AE" BorderBrush="#FF060606" BorderThickness="0,0,0,0" Click="searchBtn_Click" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FFF6F6F6" Panel.ZIndex="-1">
+                        <StackPanel Margin="0,145,0,0">
+                        <ListView VerticalAlignment="Center" Background="AliceBlue" Margin="17,0,0,0" FontFamily="Roboto Light" FontSize="10" >
+                          
+                            <ListViewItem>
+                                <Label x:Name="shopNo" Content="Shop No.:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="tenantName" Content="Tenant Name:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="fatherName" Content="Father Name:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="ownerName" Content="Owner Name:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="address" Content="Address:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="phone" Content="Phone:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="size" Content="Size:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="rate" Content="Rate:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="rent" Content="Rent:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="Start" Content="Start:"/>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <Label x:Name="End" Content="End:"/>
+                            </ListViewItem>
+                                <ListViewItem>
+                                    <Label x:Name="period" Content="Period:"/>
+                                </ListViewItem>
+                                <ListViewItem>
+                                    <CheckBox x:Name="pos" Content="Posession" />
+                                </ListViewItem>
+                                <ListViewItem>
+                                <TextBox x:Name="Notes" Text="Note:" Height="90" Width="290" TextWrapping="WrapWithOverflow">
+                                    <TextBox.BorderBrush>
+                                        <SolidColorBrush Color="#89000000" Opacity="0.35"/>
+                                    </TextBox.BorderBrush>
+                                </TextBox>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <Button  Content="Update" FontFamily="Roboto Light" Foreground="Black" Background="WhiteSmoke" BorderBrush="#FFDF88F9" BorderThickness="1,1,1,1" Width="185" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,15,0,0" Padding="16,4,16,4" Click="UpdateBtn_Click"  />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                    <StackPanel>
+                                    <Button  Content="Report" FontFamily="Roboto Light" Foreground="Black" Background="WhiteSmoke" BorderBrush="#FFF9D688" BorderThickness="1,1,1,1" Width="185" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,10,0,0" Padding="16,4,16,4"  />
+                                    </StackPanel>
+                                </ListViewItem>
+
+
+                        </ListView>
+                        </StackPanel>
+                    </Grid>
+                        
+
+
+
+                    
+                </Grid>
+            </Grid>
+
+        </materialDesign:Card>
+    </Grid>
+</Window>
