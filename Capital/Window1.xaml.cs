@@ -230,7 +230,7 @@ namespace Capital
             shopnocommand.CommandText = "SELECT ShopNo FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             OleDbDataReader reader = shopnocommand.ExecuteReader();
             reader.Read();
-            shopNo.Content = shopNo.Content + " " + reader["ShopNo"].ToString();
+            shopNo.Text = shopNo.Text + " " + reader["ShopNo"].ToString();
             reader.Close();
 
             OleDbCommand tenantcommand = Conn.CreateCommand();      // display tenant name
@@ -238,56 +238,56 @@ namespace Capital
             tenantcommand.CommandText = "SELECT TenantName FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = tenantcommand.ExecuteReader();
             reader.Read();
-            tenantName.Content = tenantName.Content + " " + reader["TenantName"].ToString();
+            tenantName.Text = tenantName.Text + " " + reader["TenantName"].ToString();
 
             OleDbCommand fathercommand = Conn.CreateCommand();      // display father name
             fathercommand.CommandType = CommandType.Text;
             fathercommand.CommandText = "SELECT FatherName FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = fathercommand.ExecuteReader();
             reader.Read();
-            fatherName.Content = fatherName.Content + " " + reader["FatherName"].ToString();
+            fatherName.Text = fatherName.Text + " " + reader["FatherName"].ToString();
 
             OleDbCommand ownercommand = Conn.CreateCommand();      // display owner name
             ownercommand.CommandType = CommandType.Text;
             ownercommand.CommandText = "SELECT OwnerName FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = ownercommand.ExecuteReader();
             reader.Read();
-            ownerName.Content = ownerName.Content + " " + reader["OwnerName"].ToString();
+            ownerName.Text = ownerName.Text + " " + reader["OwnerName"].ToString();
 
             OleDbCommand addresscommand = Conn.CreateCommand();      // display address
             addresscommand.CommandType = CommandType.Text;
             addresscommand.CommandText = "SELECT Address FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = addresscommand.ExecuteReader();
             reader.Read();
-            address.Content = address.Content + " " + reader["Address"].ToString();
+            address.Text = address.Text + " " + reader["Address"].ToString();
 
             OleDbCommand phonecommand = Conn.CreateCommand();      // display phone
             phonecommand.CommandType = CommandType.Text;
             phonecommand.CommandText = "SELECT Phone FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = phonecommand.ExecuteReader();
             reader.Read();
-            phone.Content = phone.Content + " " + reader["Phone"].ToString();
+            phone.Text = phone.Text + " " + reader["Phone"].ToString();
 
             OleDbCommand sizecommand = Conn.CreateCommand();      // display shop size
             sizecommand.CommandType = CommandType.Text;
             sizecommand.CommandText = "SELECT ShopSize FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = sizecommand.ExecuteReader();
             reader.Read();
-            size.Content = size.Content + " " + reader["ShopSize"].ToString();
+            size.Text = size.Text + " " + reader["ShopSize"].ToString();
 
             OleDbCommand ratecommand = Conn.CreateCommand();      // display rate
             ratecommand.CommandType = CommandType.Text;
             ratecommand.CommandText = "SELECT Rate FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = ratecommand.ExecuteReader();
             reader.Read();
-            rate.Content = rate.Content + " " + reader["Rate"].ToString();
+            rate.Text = rate.Text + " " + reader["Rate"].ToString();
 
             OleDbCommand rentcommand = Conn.CreateCommand();      // display rent
             rentcommand.CommandType = CommandType.Text;
             rentcommand.CommandText = "SELECT MonthlyRent FROM ShopInfo WHERE ShopNo='" + searchBar.Text + "'";
             reader = rentcommand.ExecuteReader();
             reader.Read();
-            rent.Content = rent.Content + " " + reader["MonthlyRent"].ToString();
+            rent.Text = rent.Text + " " + reader["MonthlyRent"].ToString();
 
             OleDbCommand startdatecommand = Conn.CreateCommand();      // display start date
             startdatecommand.CommandType = CommandType.Text;
@@ -295,7 +295,7 @@ namespace Capital
             reader = startdatecommand.ExecuteReader();
             reader.Read();
             DateTime dt = DateTime.Parse(reader["StartDate"].ToString());
-            Start.Content = Start.Content + " " + dt.ToShortDateString();
+            Start.Text = Start.Text + " " + dt.ToShortDateString();
 
 
             OleDbCommand enddatecommand = Conn.CreateCommand();      // display end date
@@ -304,7 +304,7 @@ namespace Capital
             reader = enddatecommand.ExecuteReader();
             reader.Read();
             DateTime x = DateTime.Parse(reader["PeriodDate"].ToString());
-            End.Content = End.Content + " " + x.ToShortDateString();
+            End.Text = End.Text + " " + x.ToShortDateString();
 
             OleDbCommand notescommand = Conn.CreateCommand();      // display notes
             notescommand.CommandType = CommandType.Text;
@@ -320,17 +320,17 @@ namespace Capital
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-            string ShopNo = (string)shopNo.Content;
-            string TenantName = (string)tenantName.Content;
-            string OwnerName = (string)ownerName.Content;
-            string FatherName = (string)fatherName.Content;
-            string Address = (string)address.Content;
-            string Phone = (string)phone.Content;
+            string ShopNo = (string)shopNo.Text;
+            string TenantName = (string)tenantName.Text;
+            string OwnerName = (string)ownerName.Text;
+            string FatherName = (string)fatherName.Text;
+            string Address = (string)address.Text;
+            string Phone = (string)phone.Text;
             bool PosRent = (bool)pos.IsChecked;
-            string ShopSize = (string)size.Content;
-            string Rate = (string)rate.Content;
-            string MonthlyRent = (string)rent.Content;
-            string Period = (string)period.Content;
+            string ShopSize = (string)size.Text;
+            string Rate = (string)rate.Text;
+            string MonthlyRent = (string)rent.Text;
+            string Period = (string)period.Text;
             string note = (string)Notes.Text;
 
 
@@ -342,15 +342,15 @@ namespace Capital
 
             if (Conn.State == ConnectionState.Open)
             {
-                command.Parameters.Add("@rentcoldate", OleDbType.Date).Value = (DateTime)Start.Content;
-                command.Parameters.Add("@monthname", OleDbType.Date).Value = (DateTime)End.Content;
-                if ((string)rent.Content == "")
+                command.Parameters.Add("@rentcoldate", OleDbType.Date).Value = Start.SelectedDate;
+                command.Parameters.Add("@monthname", OleDbType.Date).Value = End.SelectedDate;
+                if ((string)rent.Text == "")
                 {
                     command.Parameters.Add("@monthlyrent", DBNull.Value);
                 }
                 else
                 {
-                    command.Parameters.Add("@monthlyrent", OleDbType.VarChar).Value = rent.Content;
+                    command.Parameters.Add("@monthlyrent", OleDbType.VarChar).Value = rent.Text;
                 }
                 command.Parameters.AddWithValue("@shopno", OleDbType.VarChar).Value = searchBar.Text;
 

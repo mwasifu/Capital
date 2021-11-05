@@ -146,10 +146,10 @@
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0">
-                                <Button x:Name="editBtn" Content="Edit" BorderBrush="#FF5900FF" BorderThickness="0.5,0.5,0.5,0.5" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="editBtn_Click" FontSize="13"  />
+                                <Button x:Name="editBtn" Content="Edit" BorderBrush="#FF5900FF" BorderThickness="1,1,1,1" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="editBtn_Click" FontSize="13"  />
                             </Grid>
                             <Grid Grid.Column="1">
-                                <Button  x:Name="createBtn" Content="Create" BorderBrush="#FF5900FF" BorderThickness="0.5,0.5,0.5,0.5" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="createBtn_Click" FontSize="13" />
+                                <Button  x:Name="createBtn" Content="Create" BorderBrush="#FF5900FF" BorderThickness="1,1,1,1" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="createBtn_Click" FontSize="13" />
                             </Grid>
                             <Grid Grid.Column="2">
                                 <Button x:Name="delBtn" Content="Delete" BorderBrush="#FFFD3737" BorderThickness="1,1,1,1" Background="White" Foreground="#FF4B4B4B" Margin="15,0,15,0" Click="delBtn_Click" FontSize="13" />
@@ -185,57 +185,196 @@
     
 
                     <Grid Grid.Row="2" Panel.ZIndex="-1">
-                        <ListView VerticalAlignment="Center" Background="AliceBlue" Margin="17,5,0,0" FontFamily="Roboto Light" FontSize="10">
+                            <StackPanel Margin="25,0,20,0">
+                                <Grid>
 
-                            <ListViewItem>
-                                <Label x:Name="shopNo" Content="Shop No.:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="tenantName" Content="Tenant Name:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="fatherName" Content="Father Name:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="ownerName" Content="Owner Name:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="address" Content="Address:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="phone" Content="Phone:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="size" Content="Size:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="rate" Content="Rate:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="rent" Content="Rent:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="Start" Content="Start:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Label x:Name="End" Content="End:"/>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <TextBox x:Name="Notes" Text="Note:" Height="90" Width="290" TextWrapping="WrapWithOverflow">
-                                    <TextBox.BorderBrush>
-                                        <SolidColorBrush Color="#89000000" Opacity="0.35"/>
-                                    </TextBox.BorderBrush>
-                                </TextBox>
-                            </ListViewItem>
-                                <ListViewItem>
-                                    <StackPanel>
-                                        <Button  Content="Update" FontFamily="Roboto Light" Foreground="Black" Background="WhiteSmoke" BorderBrush="#FFDF88F9" BorderThickness="1,1,1,1" Width="185" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,15,0,0" Padding="16,4,16,4" Click="UpdateBtn_Click"  />
-                                    </StackPanel>
-                                </ListViewItem>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="30"/>
+                                        <RowDefinition MinHeight="50"/>
+                                        <RowDefinition MinHeight="50"/>
+                                        <RowDefinition MinHeight="80"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="4*"/>
+                                            <ColumnDefinition Width="9*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                        <Label Content="Shop No.:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="shopNo"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label  Content="Tenant Name:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="tenantName"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label  Content="Father Name:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="fatherName"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Owner Name:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="ownerName" />
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Address:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="address" />
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Phone:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="phone" />
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label  Content="Size:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="size"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Rate:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="rate" />
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Rent:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="rent" />
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="9">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label  Content="Start:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="Start"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label  Content="End:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="End"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="11">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label  Content="Period:"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox Text="" x:Name="period" />
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="12">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <CheckBox x:Name="pos" Content="Posession" Foreground="#FF5900FF"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="13">
 
-                            </ListView>
-                        
-                    </Grid>
+
+                                        <TextBox x:Name="Notes" Text="Note:" Height="90" Width="290" TextWrapping="WrapWithOverflow" Foreground="#FF5900FF">
+                                            <TextBox.BorderBrush>
+                                                <SolidColorBrush Color="#89000000" Opacity="0.35"/>
+                                            </TextBox.BorderBrush>
+                                        </TextBox>
+
+                                    </Grid>
+                                    <Grid Grid.Row="14">
+
+                                        <Button  Content="Update" FontFamily="Roboto Light" Foreground="Black" Background="WhiteSmoke" BorderBrush="#FFDF88F9" BorderThickness="1,1,1,1" Width="185" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,15,50,0" Padding="16,4,16,4" Click="UpdateBtn_Click"  />
+
+                                    </Grid>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Grid>
             </Grid>
